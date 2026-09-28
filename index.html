@@ -6,7 +6,6 @@
   :root {
     --bg: #F8F5EF;
     --surface: #FFFFFF;
-    --navy: #1B2A4A;
     --gold: #C9A84C;
     --gold-light: #E8D5A0;
     --text-primary: #1B2A4A;
@@ -19,7 +18,6 @@
     :root:not([data-theme="light"]) {
       --bg: #0F1A2E;
       --surface: #1A2840;
-      --navy: #E8D5A0;
       --gold: #C9A84C;
       --gold-light: rgba(201,168,76,0.15);
       --text-primary: #EDE8DF;
@@ -31,7 +29,6 @@
   :root[data-theme="dark"] {
     --bg: #0F1A2E;
     --surface: #1A2840;
-    --navy: #E8D5A0;
     --gold: #C9A84C;
     --gold-light: rgba(201,168,76,0.15);
     --text-primary: #EDE8DF;
@@ -59,10 +56,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
   }
 
-  /* 상단 교회 정보 */
   .header {
     display: flex;
     flex-direction: column;
@@ -72,19 +67,7 @@
     text-align: center;
   }
 
-  .emblem {
-    width: 80px;
-    height: 80px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .emblem svg {
-    width: 80px;
-    height: 80px;
-  }
+  .emblem svg { width: 80px; height: 80px; }
 
   .church-name {
     font-family: 'Noto Serif KR', serif;
@@ -92,7 +75,6 @@
     font-weight: 600;
     color: var(--text-primary);
     letter-spacing: -0.02em;
-    line-height: 1.2;
   }
 
   .church-sub {
@@ -107,10 +89,8 @@
     height: 2px;
     background: var(--gold);
     border-radius: 2px;
-    margin-block: 4px;
   }
 
-  /* 링크 버튼들 */
   .links {
     width: 100%;
     display: flex;
@@ -145,18 +125,9 @@
     transition: opacity 0.15s ease;
   }
 
-  .link-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(27,42,74,0.12);
-  }
-
-  .link-card:hover::before {
-    opacity: 1;
-  }
-
-  .link-card:active {
-    transform: translateY(0);
-  }
+  .link-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(27,42,74,0.12); }
+  .link-card:hover::before { opacity: 1; }
+  .link-card:active { transform: translateY(0); }
 
   .icon-wrap {
     width: 44px;
@@ -169,12 +140,7 @@
     flex-shrink: 0;
   }
 
-  .icon-wrap svg {
-    width: 22px;
-    height: 22px;
-    color: var(--gold);
-    fill: var(--gold);
-  }
+  .icon-wrap svg { width: 22px; height: 22px; fill: var(--gold); }
 
   .link-info {
     flex: 1;
@@ -183,25 +149,65 @@
     gap: 2px;
   }
 
-  .link-label {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-primary);
-    letter-spacing: -0.01em;
-  }
-
-  .link-desc {
-    font-size: 12px;
-    color: var(--text-secondary);
-  }
+  .link-label { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+  .link-desc { font-size: 12px; color: var(--text-secondary); }
 
   .arrow {
     color: var(--text-secondary);
     opacity: 0.5;
     flex-shrink: 0;
+    transition: transform 0.2s ease;
   }
 
-  /* 하단 */
+  /* 인스타 드롭다운 */
+  .insta-wrap { display: flex; flex-direction: column; }
+
+  .insta-toggle {
+    cursor: pointer;
+    user-select: none;
+    transition: border-radius 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .insta-toggle.open { border-radius: 16px 16px 0 0; }
+  .insta-toggle.open .arrow { transform: rotate(90deg); }
+
+  .insta-dropdown {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.25s ease;
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 16px 16px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .insta-dropdown.open { max-height: 300px; }
+
+  .insta-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 500;
+    border-top: 1px solid var(--border);
+    transition: background 0.1s ease;
+  }
+
+  .insta-item:hover { background: var(--gold-light); }
+  .insta-item:last-child { border-radius: 0 0 16px 16px; }
+
+  .insta-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
   .footer {
     margin-top: 40px;
     text-align: center;
@@ -217,24 +223,15 @@
   <header class="header">
     <div class="emblem">
       <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- 원형 배경 -->
         <circle cx="40" cy="40" r="38" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
-        <!-- 십자가 -->
         <rect x="37" y="14" width="6" height="32" rx="2" fill="#C9A84C"/>
         <rect x="24" y="24" width="32" height="6" rx="2" fill="#C9A84C"/>
-        <!-- 빛 퍼짐 효과 -->
         <circle cx="40" cy="40" r="22" fill="#C9A84C" opacity="0.06"/>
-        <!-- 아래 장식 -->
         <path d="M 28 58 Q 40 65 52 58" stroke="#C9A84C" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
       </svg>
     </div>
-
-    <div>
-      <h1 class="church-name">발음교회</h1>
-    </div>
-
+    <h1 class="church-name">발음교회</h1>
     <div class="divider"></div>
-
     <p class="church-sub">서울 강서구 우장산로<br>Baleum Church</p>
   </header>
 
@@ -242,86 +239,73 @@
 
     <a href="http://www.baleum.org/main/" class="link-card" target="_blank" rel="noopener">
       <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
-          <path d="M9 21V12h6v9" fill="var(--surface)"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9" fill="var(--surface)"/></svg>
       </div>
       <div class="link-info">
         <span class="link-label">홈페이지</span>
         <span class="link-desc">발음교회 공식 홈페이지</span>
       </div>
-      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 18l6-6-6-6"/>
-      </svg>
+      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
     </a>
 
     <a href="https://www.youtube.com/@baleumchurch" class="link-card" target="_blank" rel="noopener">
       <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
-          <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--surface)"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--surface)"/></svg>
       </div>
       <div class="link-info">
         <span class="link-label">유튜브</span>
         <span class="link-desc">설교 및 예배 영상</span>
       </div>
-      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 18l6-6-6-6"/>
-      </svg>
+      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
     </a>
 
-    <a href="https://www.instagram.com/baleum_church/" class="link-card" target="_blank" rel="noopener">
-      <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <circle cx="12" cy="12" r="4" fill="var(--surface)"/>
-          <circle cx="17.5" cy="6.5" r="1.2" fill="var(--surface)"/>
-        </svg>
+    <div class="insta-wrap">
+      <div class="link-card insta-toggle" onclick="toggleInsta(this)">
+        <div class="icon-wrap">
+          <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4" fill="var(--surface)"/><circle cx="17.5" cy="6.5" r="1.2" fill="var(--surface)"/></svg>
+        </div>
+        <div class="link-info">
+          <span class="link-label">인스타그램</span>
+          <span class="link-desc">계정 선택하기</span>
+        </div>
+        <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </div>
-      <div class="link-info">
-        <span class="link-label">인스타그램</span>
-        <span class="link-desc">@baleum_church</span>
+      <div class="insta-dropdown">
+        <a href="https://www.instagram.com/baleum_church/" class="insta-item" target="_blank" rel="noopener">
+          <span class="insta-dot"></span>@baleum_church
+        </a>
+        <a href="https://www.instagram.com/계정2/" class="insta-item" target="_blank" rel="noopener">
+          <span class="insta-dot"></span>@계정2
+        </a>
+        <a href="https://www.instagram.com/계정3/" class="insta-item" target="_blank" rel="noopener">
+          <span class="insta-dot"></span>@계정3
+        </a>
+        <a href="https://www.instagram.com/계정4/" class="insta-item" target="_blank" rel="noopener">
+          <span class="insta-dot"></span>@계정4
+        </a>
       </div>
-      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 18l6-6-6-6"/>
-      </svg>
-    </a>
+    </div>
 
     <a href="http://www.baleum.org/main/bbs/board.php?bo_table=n01" class="link-card" target="_blank" rel="noopener">
       <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-          <polyline points="14 2 14 8 20 8" fill="none" stroke="var(--surface)" stroke-width="1.5"/>
-          <line x1="16" y1="13" x2="8" y2="13" stroke="var(--surface)" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="16" y1="17" x2="8" y2="17" stroke="var(--surface)" stroke-width="1.5" stroke-linecap="round"/>
-          <polyline points="10 9 9 9 8 9" stroke="var(--surface)" stroke-width="1.5" stroke-linecap="round"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8" fill="none" stroke="var(--surface)" stroke-width="1.5"/><line x1="16" y1="13" x2="8" y2="13" stroke="var(--surface)" stroke-width="1.5" stroke-linecap="round"/><line x1="16" y1="17" x2="8" y2="17" stroke="var(--surface)" stroke-width="1.5" stroke-linecap="round"/></svg>
       </div>
       <div class="link-info">
         <span class="link-label">공지사항</span>
         <span class="link-desc">교회 소식 및 안내</span>
       </div>
-      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 18l6-6-6-6"/>
-      </svg>
+      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
     </a>
 
     <a href="https://naver.me/FdCfiIFa" class="link-card" target="_blank" rel="noopener">
       <div class="icon-wrap">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-          <circle cx="12" cy="9" r="2.5" fill="var(--surface)"/>
-        </svg>
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="var(--surface)"/></svg>
       </div>
       <div class="link-info">
         <span class="link-label">오시는 길</span>
         <span class="link-desc">네이버 지도로 보기</span>
       </div>
-      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 18l6-6-6-6"/>
-      </svg>
+      <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
     </a>
 
   </nav>
@@ -331,3 +315,12 @@
     서울특별시 강서구 우장산로
   </footer>
 </div>
+
+<script>
+  function toggleInsta(btn) {
+    const dropdown = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    btn.classList.toggle('open', !isOpen);
+    dropdown.classList.toggle('open', !isOpen);
+  }
+</script>
