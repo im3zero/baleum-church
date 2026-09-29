@@ -1,19 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns="http://www.w3.org/1999/html">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
     <title>발음교회 vip 초청 주일 초대장</title>
     <meta property="og:title" content="발음교회 vip 초청 주일 초대장">
     <meta property="og:description" content="친구야~ 교회 가자!">
     <meta property="og:url" content="https://baleum-church.vercel.app">
     <meta property="og:image" content="https://baleum-church.vercel.app/vip_image.jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@400;500;600&display=swap">
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600&family=Noto+Sans+KR:wght@400;500;600&display=swap">
     <style>
         :root {
             --bg: #F8F5EF;
@@ -25,268 +21,106 @@
             --border: rgba(27, 42, 74, 0.10);
             --shadow: 0 2px 16px rgba(27, 42, 74, 0.08);
         }
-
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme="light"]) {
-                --bg: #0F1A2E;
-                --surface: #1A2840;
-                --gold: #C9A84C;
-                --gold-light: rgba(201, 168, 76, 0.15);
-                --text-primary: #EDE8DF;
-                --text-secondary: #9CA3AF;
-                --border: rgba(232, 213, 160, 0.12);
+                --bg: #0F1A2E; --surface: #1A2840; --gold: #C9A84C;
+                --gold-light: rgba(201, 168, 76, 0.15); --text-primary: #EDE8DF;
+                --text-secondary: #9CA3AF; --border: rgba(232, 213, 160, 0.12);
                 --shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
             }
         }
-
         :root[data-theme="dark"] {
-            --bg: #0F1A2E;
-            --surface: #1A2840;
-            --gold: #C9A84C;
-            --gold-light: rgba(201, 168, 76, 0.15);
-            --text-primary: #EDE8DF;
-            --text-secondary: #9CA3AF;
-            --border: rgba(232, 213, 160, 0.12);
+            --bg: #0F1A2E; --surface: #1A2840; --gold: #C9A84C;
+            --gold-light: rgba(201, 168, 76, 0.15); --text-primary: #EDE8DF;
+            --text-secondary: #9CA3AF; --border: rgba(232, 213, 160, 0.12);
             --shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background: var(--bg);
-            color: var(--text-primary);
-            font-family: 'Noto Sans KR', sans-serif;
-            min-height: 100%;
-            display: flex;
-            justify-content: center;
-            padding-inline: 16px;
-            padding-block: 48px 64px;
+            background: var(--bg); color: var(--text-primary);
+            font-family: 'Noto Sans KR', sans-serif; min-height: 100%;
+            display: flex; justify-content: center;
+            padding-inline: 16px; padding-block: 48px 64px;
         }
-
-        .page {
-            width: 100%;
-            max-width: 420px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
-            padding-block: 0 40px;
-            text-align: center;
-        }
-
-        .emblem svg {
-            width: 80px;
-            height: 80px;
-        }
-
-        .church-name {
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 28px;
-            font-weight: 500;
-            color: var(--text-primary);
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-family: 'Noto Sans KR', sans-serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .church-sub {
-            font-size: 13px;
-            color: var(--text-secondary);
-            letter-spacing: 0.04em;
-            line-height: 1.5;
-        }
-
-        .divider {
-            width: 40px;
-            height: 2px;
-            background: var(--gold);
-            border-radius: 2px;
-        }
-
-        .links {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
+        .page { width: 100%; max-width: 420px; display: flex; flex-direction: column; align-items: center; }
+        .header { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-block: 0 40px; text-align: center; }
+        .emblem svg { width: 80px; height: 80px; }
+        .church-name { font-family: 'Noto Sans KR', sans-serif; font-size: 28px; font-weight: 500; color: var(--text-primary); letter-spacing: -0.02em; }
+        h2 { font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-secondary); }
+        .church-sub { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.04em; line-height: 1.5; }
+        .links { width: 100%; display: flex; flex-direction: column; gap: 12px; }
         .link-card {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 18px 20px;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            text-decoration: none;
-            color: var(--text-primary);
-            box-shadow: var(--shadow);
-            transition: transform 0.15s ease, box-shadow 0.15s ease;
-            position: relative;
-            overflow: hidden;
+            display: flex; align-items: center; gap: 16px; padding: 18px 20px;
+            background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+            text-decoration: none; color: var(--text-primary); box-shadow: var(--shadow);
+            transition: transform 0.15s ease, box-shadow 0.15s ease; position: relative; overflow: hidden;
         }
-
         .link-card::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: var(--gold);
-            border-radius: 0 2px 2px 0;
-            opacity: 0;
-            transition: opacity 0.15s ease;
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+            background: var(--gold); border-radius: 0 2px 2px 0; opacity: 0; transition: opacity 0.15s ease;
         }
-
-        .link-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(27, 42, 74, 0.12);
-        }
-
-        .link-card:hover::before {
-            opacity: 1;
-        }
-
-        .link-card:active {
-            transform: translateY(0);
-        }
-
-        .icon-wrap {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: var(--gold-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .icon-wrap svg {
-            width: 22px;
-            height: 22px;
-            fill: var(--gold);
-        }
-
-        .link-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .link-label {
-            font-size: 15px;
-            font-weight: 600;
-            letter-spacing: -0.01em;
-        }
-
-        .link-desc {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .arrow {
-            color: var(--text-secondary);
-            opacity: 0.5;
-            flex-shrink: 0;
-            transition: transform 0.2s ease;
-        }
+        .link-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(27,42,74,0.12); }
+        .link-card:hover::before { opacity: 1; }
+        .link-card:active { transform: translateY(0); }
+        .icon-wrap { width: 44px; height: 44px; border-radius: 12px; background: var(--gold-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .icon-wrap svg { width: 22px; height: 22px; fill: var(--gold); }
+        .link-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
+        .link-label { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+        .link-desc { font-size: 12px; color: var(--text-secondary); }
+        .arrow { color: var(--text-secondary); opacity: 0.5; flex-shrink: 0; transition: transform 0.2s ease; }
 
         /* 인스타 드롭다운 */
-        .insta-wrap {
-            display: flex;
-            flex-direction: column;
-        }
+        .insta-wrap { display: flex; flex-direction: column; }
+        .insta-toggle { cursor: pointer; user-select: none; transition: border-radius 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease; }
+        .insta-toggle.open { border-radius: 16px 16px 0 0; }
+        .insta-toggle.open .arrow { transform: rotate(90deg); }
+        .insta-dropdown { overflow: hidden; max-height: 0; transition: max-height 0.25s ease; border: 1px solid var(--border); border-top: none; border-radius: 0 0 16px 16px; background: var(--surface); box-shadow: var(--shadow); }
+        .insta-dropdown.open { max-height: 300px; }
+        .insta-item { display: flex; align-items: center; gap: 12px; padding: 14px 20px; text-decoration: none; color: var(--text-primary); font-size: 14px; font-weight: 500; border-top: 1px solid var(--border); transition: background 0.1s ease; }
+        .insta-item:hover { background: var(--gold-light); }
+        .insta-item:last-child { border-radius: 0 0 16px 16px; }
+        .insta-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
-        .insta-toggle {
-            cursor: pointer;
-            user-select: none;
-            transition: border-radius 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
-        }
+        /* 일정 드롭다운 */
+        .schedule-wrap { display: flex; flex-direction: column; }
+        .schedule-toggle { cursor: pointer; user-select: none; transition: border-radius 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease; }
+        .schedule-toggle.open { border-radius: 16px 16px 0 0; }
+        .schedule-toggle.open .arrow { transform: rotate(90deg); }
+        .schedule-dropdown { overflow: hidden; max-height: 0; transition: max-height 0.5s ease; border: 1px solid var(--border); border-top: none; border-radius: 0 0 16px 16px; background: var(--surface); box-shadow: var(--shadow); }
+        .schedule-dropdown.open { max-height: 1400px; }
+        .schedule-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 20px; border-top: 1px solid var(--border); }
+        .schedule-date { font-size: 11px; font-weight: 700; color: var(--gold); white-space: nowrap; padding-top: 2px; flex-shrink: 0; }
+        .schedule-name { font-size: 13px; font-weight: 500; color: var(--text-primary); line-height: 1.4; }
 
-        .insta-toggle.open {
-            border-radius: 16px 16px 0 0;
-        }
-
-        .insta-toggle.open .arrow {
-            transform: rotate(90deg);
-        }
-
-        .insta-dropdown {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.25s ease;
-            border: 1px solid var(--border);
-            border-top: none;
-            border-radius: 0 0 16px 16px;
-            background: var(--surface);
-            box-shadow: var(--shadow);
-        }
-
-        .insta-dropdown.open {
-            max-height: 300px;
-        }
-
-        .insta-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 20px;
-            text-decoration: none;
-            color: var(--text-primary);
-            font-size: 14px;
-            font-weight: 500;
-            border-top: 1px solid var(--border);
-            transition: background 0.1s ease;
-        }
-
-        .insta-item:hover {
-            background: var(--gold-light);
-        }
-
-        .insta-item:last-child {
-            border-radius: 0 0 16px 16px;
-        }
-
-        .insta-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: var(--gold);
-            flex-shrink: 0;
-        }
-
-        .footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 11px;
-            color: var(--text-secondary);
-            opacity: 0.6;
-            letter-spacing: 0.02em;
-            line-height: 1.8;
-        }
+        /* 캘린더 */
+        .calendar-wrap { width: 100%; padding: 16px 16px 20px; border-top: 1px solid var(--border); margin-top: 4px; }
+        .calendar-title { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .calendar-title::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--gold); border-radius: 2px; }
+        .calendar-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .calendar-nav span { font-size: 14px; font-weight: 600; color: var(--text-primary); }
+        .calendar-nav button { background: none; border: none; cursor: pointer; color: var(--text-secondary); font-size: 18px; padding: 4px 10px; border-radius: 8px; transition: background 0.1s; }
+        .calendar-nav button:hover { background: var(--gold-light); }
+        .calendar-grid { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+        .calendar-days-header { display: grid; grid-template-columns: repeat(7, 1fr); background: var(--gold-light); }
+        .calendar-days-header span { text-align: center; padding: 7px 0; font-size: 11px; font-weight: 600; color: var(--text-secondary); }
+        .calendar-days-header span:first-child { color: #E05252; }
+        .calendar-days-header span:last-child { color: #5B8DD9; }
+        .calendar-body { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--border); }
+        .cal-day { background: var(--surface); min-height: 48px; padding: 5px 3px 3px; display: flex; flex-direction: column; gap: 2px; }
+        .cal-day.other-month .day-num { opacity: 0.3; }
+        .day-num { font-size: 11px; font-weight: 500; text-align: center; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin: 0 auto; }
+        .cal-day.sunday .day-num { color: #E05252; }
+        .cal-day.saturday .day-num { color: #5B8DD9; }
+        .cal-day.has-event .day-num { background: var(--gold); color: white; }
+        .event-dot { font-size: 8px; color: var(--gold); text-align: center; line-height: 1.2; word-break: keep-all; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+        .event-list { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
+        .event-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
+        .event-date-badge { background: var(--gold-light); color: var(--gold); font-size: 10px; font-weight: 700; padding: 3px 7px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; }
+        .event-name { font-size: 12px; font-weight: 500; color: var(--text-primary); line-height: 1.4; padding-top: 2px; }
     </style>
 </head>
 <body>
 <div class="page">
-
     <header class="header">
         <div class="emblem">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -294,8 +128,7 @@
                 <rect x="37" y="14" width="6" height="32" rx="2" fill="#C9A84C"/>
                 <rect x="24" y="24" width="32" height="6" rx="2" fill="#C9A84C"/>
                 <circle cx="40" cy="40" r="22" fill="#C9A84C" opacity="0.06"/>
-                <path d="M 28 58 Q 40 65 52 58" stroke="#C9A84C" stroke-width="1.5" fill="none"
-                      stroke-linecap="round" opacity="0.5"/>
+                <path d="M 28 58 Q 40 65 52 58" stroke="#C9A84C" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
             </svg>
         </div>
         <h2 class="church-sub-title">발음교회</h2>
@@ -309,120 +142,83 @@
 
         <a href="http://www.baleum.org/main/" class="link-card" target="_blank" rel="noopener">
             <div class="icon-wrap">
-                <svg viewBox="0 0 24 24">
-                    <path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/>
-                    <path d="M9 21V12h6v9" fill="var(--surface)"/>
-                </svg>
+                <svg viewBox="0 0 24 24"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 01-1 1H4a1 1 0 01-1-1V9.5z"/><path d="M9 21V12h6v9" fill="var(--surface)"/></svg>
             </div>
-            <div class="link-info">
-                <span class="link-label">홈페이지</span>
-                <span class="link-desc">발음교회 공식 홈페이지</span>
-            </div>
-            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-                 stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
-            </svg>
+            <div class="link-info"><span class="link-label">홈페이지</span><span class="link-desc">발음교회 공식 홈페이지</span></div>
+            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </a>
 
         <a href="https://www.youtube.com/@baleumchurch" class="link-card" target="_blank" rel="noopener">
             <div class="icon-wrap">
-                <svg viewBox="0 0 24 24">
-                    <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97A29 29 0 0023 12a29 29 0 00-.46-5.58z"/>
-                    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--surface)"/>
-                </svg>
+                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.97C18.88 4 12 4 12 4s-6.88 0-8.59.45A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.97C5.12 20 12 20 12 20s6.88 0 8.59-.45a2.78 2.78 0 001.95-1.97A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--surface)"/></svg>
             </div>
-            <div class="link-info">
-                <span class="link-label">유튜브</span>
-                <span class="link-desc">설교 및 예배 영상</span>
-            </div>
-            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-                 stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
-            </svg>
+            <div class="link-info"><span class="link-label">유튜브</span><span class="link-desc">설교 및 예배 영상</span></div>
+            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </a>
 
         <div class="insta-wrap">
             <div class="link-card insta-toggle" onclick="toggleInsta(this)">
                 <div class="icon-wrap">
-                    <svg viewBox="0 0 24 24">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                        <circle cx="12" cy="12" r="4" fill="var(--surface)"/>
-                        <circle cx="17.5" cy="6.5" r="1.2" fill="var(--surface)"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4" fill="var(--surface)"/><circle cx="17.5" cy="6.5" r="1.2" fill="var(--surface)"/></svg>
                 </div>
-                <div class="link-info">
-                    <span class="link-label">인스타그램</span>
-                    <span class="link-desc">계정 선택하기</span>
-                </div>
-                <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-                     stroke-width="2">
-                    <path d="M9 18l6-6-6-6"/>
-                </svg>
+                <div class="link-info"><span class="link-label">인스타그램</span><span class="link-desc">계정 선택하기</span></div>
+                <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
             </div>
             <div class="insta-dropdown">
-                <a href="https://www.instagram.com/keunyeongjeon/" class="insta-item" target="_blank" rel="noopener">
-                    <span class="insta-dot"></span>담임목사님 인스타그램 계정
-                </a>
-                <a href="https://www.instagram.com/baleum_church/" class="insta-item" target="_blank"
-                   rel="noopener">
-                    <span class="insta-dot"></span>발음교회 인스타그램 계정
-                </a>
-                <a href="https://www.instagram.com/baleum_1cheong/" class="insta-item" target="_blank" rel="noopener">
-                    <span class="insta-dot"></span>1청년부 인스타그램 계정
-                </a>
-                <a href="https://www.instagram.com/baleum_2cheong/" class="insta-item" target="_blank" rel="noopener">
-                    <span class="insta-dot"></span>2청년부 인스타그램 계정
-                </a>
+                <a href="https://www.instagram.com/keunyeongjeon/" class="insta-item" target="_blank" rel="noopener"><span class="insta-dot"></span>담임목사님 인스타그램 계정</a>
+                <a href="https://www.instagram.com/baleum_church/" class="insta-item" target="_blank" rel="noopener"><span class="insta-dot"></span>발음교회 인스타그램 계정</a>
+                <a href="https://www.instagram.com/baleum_1cheong/" class="insta-item" target="_blank" rel="noopener"><span class="insta-dot"></span>1청년부 인스타그램 계정</a>
+                <a href="https://www.instagram.com/baleum_2cheong/" class="insta-item" target="_blank" rel="noopener"><span class="insta-dot"></span>2청년부 인스타그램 계정</a>
             </div>
         </div>
 
-        <!--<a href="http://www.baleum.org/main/bbs/board.php?bo_table=n01" class="link-card" target="_blank"
-           rel="noopener">
-            <div class="icon-wrap">
-                <svg viewBox="0 0 24 24">
-                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-                    <polyline points="14 2 14 8 20 8" fill="none" stroke="var(&#45;&#45;surface)" stroke-width="1.5"/>
-                    <line x1="16" y1="13" x2="8" y2="13" stroke="var(&#45;&#45;surface)" stroke-width="1.5"
-                          stroke-linecap="round"/>
-                    <line x1="16" y1="17" x2="8" y2="17" stroke="var(&#45;&#45;surface)" stroke-width="1.5"
-                          stroke-linecap="round"/>
-                </svg>
+        <div class="schedule-wrap">
+            <div class="link-card schedule-toggle" onclick="toggleSchedule(this)">
+                <div class="icon-wrap">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="3" y="4" width="18" height="17" rx="3" fill="var(--gold)"/>
+                        <rect x="3" y="4" width="18" height="7" rx="3" fill="var(--gold)"/>
+                        <path d="M3 9h18" stroke="var(--surface)" stroke-width="1.2"/>
+                        <rect x="7" y="13" width="3" height="2.5" rx="0.8" fill="var(--surface)"/>
+                        <rect x="10.5" y="13" width="3" height="2.5" rx="0.8" fill="var(--surface)"/>
+                        <rect x="14" y="13" width="3" height="2.5" rx="0.8" fill="var(--surface)"/>
+                        <line x1="8" y1="2" x2="8" y2="6" stroke="var(--surface)" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="16" y1="2" x2="16" y2="6" stroke="var(--surface)" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="link-info"><span class="link-label">일정 안내</span><span class="link-desc">VIP 초청주일 행사 일정</span></div>
+                <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
             </div>
-            <div class="link-info">
-                <span class="link-label">공지사항</span>
-                <span class="link-desc">교회 소식 및 안내</span>
+            <div class="schedule-dropdown">
+                <div class="calendar-wrap">
+                    <div class="calendar-title">일정 캘린더</div>
+                    <div class="calendar-nav">
+                        <button onclick="changeMonth(-1)">&#8249;</button>
+                        <span id="cal-month-label"></span>
+                        <button onclick="changeMonth(1)">&#8250;</button>
+                    </div>
+                    <div class="calendar-grid">
+                        <div class="calendar-days-header">
+                            <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+                        </div>
+                        <div class="calendar-body" id="cal-body"></div>
+                    </div>
+                    <div class="event-list" id="event-list"></div>
+                </div>
             </div>
-            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-                 stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
-            </svg>
-        </a>-->
+        </div>
 
         <a href="https://naver.me/FdCfiIFa" class="link-card" target="_blank" rel="noopener">
             <div class="icon-wrap">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
-                    <circle cx="12" cy="9" r="2.5" fill="var(--surface)"/>
-                </svg>
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" fill="var(--surface)"/></svg>
             </div>
-            <div class="link-info">
-                <span class="link-label">오시는 길</span>
-                <span class="link-desc">네이버 지도로 보기</span>
-            </div>
-            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
-                 stroke-width="2">
-                <path d="M9 18l6-6-6-6"/>
-            </svg>
+            <div class="link-info"><span class="link-label">오시는 길</span><span class="link-desc">네이버 지도로 보기</span></div>
+            <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </a>
 
     </nav>
 
-    <img src="/logo.png" style="width:200px; margin-top:40px; mix-blend-mode:multiply; opacity:0.8;">
-
-    <!--<footer class="footer">
-        발음교회 · Baleum Church<br>
-        서울특별시 강서구 우장산로
-    </footer>-->
+    <img src="/logo.png" style="width:200px; margin-top:40px; mix-blend-mode:multiply; opacity:0.8;" alt="발음교회 로고">
 </div>
 
 <script>
@@ -432,6 +228,106 @@
         btn.classList.toggle('open', !isOpen);
         dropdown.classList.toggle('open', !isOpen);
     }
+
+    function toggleSchedule(btn) {
+        const dropdown = btn.nextElementSibling;
+        const isOpen = btn.classList.contains('open');
+        btn.classList.toggle('open', !isOpen);
+        dropdown.classList.toggle('open', !isOpen);
+    }
+
+    const events = {
+        '2026-10-04': ['VIP 초청 선포주일', '다니엘 기도운동 시작'],
+        '2026-10-11': ['사진 콘테스트·시화전 시작'],
+        '2026-10-14': ['전도 간증'],
+        '2026-10-18': ['발산 교동협의회 자선음악회'],
+        '2026-10-21': ['전도 특강 (배우, 김예랑 집사)'],
+        '2026-10-24': ['다니엘 기도운동 마감'],
+        '2026-10-28': ['선교보고예배 (오만, 조갈렙 선교사)'],
+        '2026-10-31': ['북콘서트 (강문순 집사)'],
+        '2026-11-01': ['VIP 초청 주일 🎉'],
+    };
+
+    let currentYear = 2026;
+    let currentMonth = 10;
+
+    function changeMonth(dir) {
+        currentMonth += dir;
+        if (currentMonth > 12) { currentMonth = 1; currentYear++; }
+        if (currentMonth < 1)  { currentMonth = 12; currentYear--; }
+        renderCalendar();
+    }
+
+    function renderCalendar() {
+        const label = document.getElementById('cal-month-label');
+        const body = document.getElementById('cal-body');
+        const eventList = document.getElementById('event-list');
+
+        label.textContent = currentYear + '년 ' + currentMonth + '월';
+
+        const firstDay = new Date(currentYear, currentMonth - 1, 1).getDay();
+        const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+        const prevDays = new Date(currentYear, currentMonth - 1, 0).getDate();
+
+        body.innerHTML = '';
+        const cells = [];
+
+        for (let i = firstDay - 1; i >= 0; i--) cells.push({ day: prevDays - i, current: false });
+        for (let d = 1; d <= daysInMonth; d++) cells.push({ day: d, current: true });
+        const remain = 42 - cells.length;
+        for (let d = 1; d <= remain; d++) cells.push({ day: d, current: false });
+
+        cells.forEach(function(cell, idx) {
+            const div = document.createElement('div');
+            div.className = 'cal-day';
+            if (!cell.current) div.classList.add('other-month');
+            const dow = idx % 7;
+            if (dow === 0) div.classList.add('sunday');
+            if (dow === 6) div.classList.add('saturday');
+
+            const dateKey = cell.current
+                ? currentYear + '-' + String(currentMonth).padStart(2,'0') + '-' + String(cell.day).padStart(2,'0')
+                : null;
+
+            if (dateKey && events[dateKey]) div.classList.add('has-event');
+
+            const numEl = document.createElement('div');
+            numEl.className = 'day-num';
+            numEl.textContent = cell.day;
+            div.appendChild(numEl);
+
+            if (dateKey && events[dateKey]) {
+                events[dateKey].forEach(function(ev) {
+                    const dot = document.createElement('div');
+                    dot.className = 'event-dot';
+                    dot.textContent = ev;
+                    div.appendChild(dot);
+                });
+            }
+            body.appendChild(div);
+        });
+
+        eventList.innerHTML = '';
+        const days = ['일','월','화','수','목','금','토'];
+        const monthKeys = Object.keys(events).filter(function(k) {
+            const parts = k.split('-');
+            return parseInt(parts[0]) === currentYear && parseInt(parts[1]) === currentMonth;
+        }).sort();
+
+        monthKeys.forEach(function(key) {
+            const d = parseInt(key.split('-')[2]);
+            const date = new Date(key);
+            const dow = days[date.getDay()];
+            events[key].forEach(function(ev) {
+                const item = document.createElement('div');
+                item.className = 'event-item';
+                item.innerHTML = '<span class="event-date-badge">' + d + '일(' + dow + ')</span><span class="event-name">' + ev + '</span>';
+                eventList.appendChild(item);
+            });
+        });
+    }
+
+    renderCalendar();
 </script>
 </body>
 </html>
