@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 
     <title>발음교회 vip 초청 주일 초대장</title>
     <meta property="og:title" content="발음교회 vip 초청 주일 초대장">
-    <meta property="og:description" content="칭구야 교회 가좌 ~">
+    <meta property="og:description" content="친구야 교회가자">
     <meta property="og:url" content="https://baleum-church.vercel.app">
     <meta property="og:image" content="https://baleum-church.vercel.app/vip_image.jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -90,11 +90,18 @@
         }
 
         .church-name {
-            font-family: 'Noto Serif KR', serif;
+            font-family: 'Noto Sans KR', sans-serif;
             font-size: 28px;
-            font-weight: 600;
+            font-weight: 500;
             color: var(--text-primary);
             letter-spacing: -0.02em;
+        }
+
+        h2 {
+            font-family: 'Noto Sans KR', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-secondary);
         }
 
         .church-sub {
@@ -291,9 +298,13 @@
                       stroke-linecap="round" opacity="0.5"/>
             </svg>
         </div>
-        <h1 class="church-name">발음교회</h1>
-        <img src="/vip_image.jpeg" alt="VIP 초청 주일 포스터" style="width:100%; border-radius:16px; margin-bottom:8px;">
 <!--
+        <h1 class="church-name">2026 VIP 초청주일:</br>"친구야 교회 가자"</h1>
+-->
+        <img src="/vip_image.jpeg" alt="VIP 초청주일 포스터" style="width:100%; border-radius:16px; margin-bottom:8px;">
+        <h2 class="church-sub-title">2026 VIP 초청주일</h2>
+        <h1 class="church-name">"친구야 교회 가자"</h1>
+        <!--
         <h1 class="church-name">발음교회</h1>
         <div class="divider"></div>
         <p class="church-sub">서울 강서구 우장산로<br>Baleum Church</p>-->
@@ -410,6 +421,8 @@
         </a>
 
     </nav>
+
+    <img src="/logo.png" style="width:300px; margin-top:40px; mix-blend-mode:multiply; opacity:0.8;">
 
     <!--<footer class="footer">
         발음교회 · Baleum Church<br>
