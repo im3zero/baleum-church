@@ -52,9 +52,8 @@
             content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
             background: var(--gold); border-radius: 0 2px 2px 0; opacity: 0; transition: opacity 0.15s ease;
         }
-        .link-card:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(27,42,74,0.12); }
-        .link-card:hover::before { opacity: 1; }
-        .link-card:active { transform: translateY(0); }
+        .link-card:active { transform: scale(0.97); box-shadow: 0 1px 6px rgba(27,42,74,0.08); }
+        .link-card:active::before { opacity: 1; }
         .icon-wrap { width: 44px; height: 44px; border-radius: 12px; background: var(--gold-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
         .icon-wrap svg { width: 22px; height: 22px; fill: var(--gold); }
         .link-info { flex: 1; display: flex; flex-direction: column; gap: 2px; }
@@ -128,9 +127,9 @@
         .insta-toggle.open { border-radius: 16px 16px 0 0; }
         .insta-toggle.open .arrow { transform: rotate(90deg); }
         .insta-dropdown { overflow: hidden; max-height: 0; transition: max-height 0.25s ease; border: 1px solid var(--border); border-top: none; border-radius: 0 0 16px 16px; background: var(--surface); box-shadow: var(--shadow); }
-        .insta-dropdown.open { max-height: 300px; }
+        .insta-dropdown.open { max-height: 500px; }
         .insta-item { display: flex; align-items: center; gap: 12px; padding: 14px 20px; text-decoration: none; color: var(--text-primary); font-size: 14px; font-weight: 500; border-top: 1px solid var(--border); transition: background 0.1s ease; }
-        .insta-item:hover { background: var(--gold-light); }
+        .insta-item:active { background: var(--gold-light); }
         .insta-item:last-child { border-radius: 0 0 16px 16px; }
         .insta-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
 
@@ -149,7 +148,7 @@
         .calendar-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
         .calendar-nav span { font-size: 14px; font-weight: 600; color: var(--text-primary); }
         .calendar-nav button { background: none; border: none; cursor: pointer; color: var(--text-secondary); font-size: 18px; padding: 4px 10px; border-radius: 8px; transition: background 0.1s; }
-        .calendar-nav button:hover { background: var(--gold-light); }
+        .calendar-nav button:active { background: var(--gold-light); }
         .calendar-grid { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
         .calendar-days-header { display: grid; grid-template-columns: repeat(7, 1fr); background: var(--gold-light); }
         .calendar-days-header span { text-align: center; padding: 7px 0; font-size: 11px; font-weight: 600; color: var(--text-secondary); }
