@@ -80,7 +80,7 @@
         .insta-item:hover { background: var(--gold-light); }
         .insta-item:last-child { border-radius: 0 0 16px 16px; }
         .insta-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-
+        .pastor-dropdown.open { max-height: 1200px; }
         /* 일정 드롭다운 */
         .schedule-wrap { display: flex; flex-direction: column; }
         .schedule-toggle { cursor: pointer; user-select: none; transition: border-radius 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease; }
@@ -122,7 +122,7 @@
 <body>
 <div class="page">
     <header class="header">
-        <div class="emblem">
+        <!--<div class="emblem">
             <svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="40" cy="40" r="38" stroke="#C9A84C" stroke-width="1.5" opacity="0.3"/>
                 <rect x="37" y="14" width="6" height="32" rx="2" fill="#C9A84C"/>
@@ -130,15 +130,30 @@
                 <circle cx="40" cy="40" r="22" fill="#C9A84C" opacity="0.06"/>
                 <path d="M 28 58 Q 40 65 52 58" stroke="#C9A84C" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
             </svg>
-        </div>
-        <h2 class="church-sub-title">발음교회</h2>
-        <p class="church-sub">소중한 당신을 초대합니다!</p>
+        </div>-->
+        <!--<h2 class="church-sub-title">발음교회</h2>
+        <p class="church-sub">소중한 당신을 초대합니다!</p>-->
         <img src="/vip_image.jpeg" alt="VIP 초청주일 포스터" style="width:100%; border-radius:16px; margin-bottom:8px;">
         <h2 class="church-sub-title">2026 VIP 초청주일</h2>
         <h1 class="church-name">"친구야 교회 가자"</h1>
     </header>
 
     <nav class="links" aria-label="교회 링크 모음">
+
+        <div class="insta-wrap">
+            <div class="link-card insta-toggle" onclick="toggleInsta(this)">
+                <div class="icon-wrap">
+                    <svg viewBox="0 0 24 24">
+                        <rect x="2" y="5" width="20" height="14" rx="2" fill="var(--gold)"/>
+                        <path d="M2 7l10 7 10-7" stroke="var(--surface)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+                    </svg>                </div>
+                <div class="link-info"><span class="link-label">초대의 글</span><span class="link-desc">전근영 담임목사</span></div>
+                <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+            </div>
+            <div class="insta-dropdown pastor-dropdown">
+                <img src="/pastor_letter.jpeg" alt="담임목사님 초대의 글" style="width:100%; display:block;">
+            </div>
+        </div>
 
         <a href="http://www.baleum.org/main/" class="link-card" target="_blank" rel="noopener">
             <div class="icon-wrap">
@@ -237,12 +252,12 @@
     }
 
     const events = {
-        '2026-10-04': ['VIP 초청 선포주일', '다니엘 기도운동 시작'],
-        '2026-10-11': ['사진 콘테스트·시화전 시작'],
+        '2026-10-04': ['VIP 초청 선포주일', '21 다니엘 기도(~10.24)'],
+        '2026-10-11': ['사진 콘테스트, 시화전(~11.1)'],
         '2026-10-14': ['전도 간증'],
-        '2026-10-18': ['발산 교동협의회 자선음악회'],
+        '2026-10-18': ['발산 교동협의회 가을음악회'],
         '2026-10-21': ['전도 특강 (배우, 김예랑 집사)'],
-        '2026-10-24': ['다니엘 기도운동 마감'],
+        '2026-10-26': ['VIP 초청주일을 위한 특별새벽기도회(~10.30)'],
         '2026-10-28': ['선교보고예배 (오만, 조갈렙 선교사)'],
         '2026-10-31': ['북콘서트 (강문순 집사)'],
         '2026-11-01': ['VIP 초청 주일 🎉'],
