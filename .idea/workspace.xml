@@ -70,7 +70,7 @@
       <updated>1790561786423</updated>
       <workItem from="1790561787437" duration="2379000" />
       <workItem from="1790603756959" duration="9553000" />
-      <workItem from="1790749297088" duration="2723000" />
+      <workItem from="1790749297088" duration="3319000" />
     </task>
     <servers />
   </component>
@@ -82,13 +82,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/index.html</url>
-          <line>301</line>
+          <line>349</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/index.html</url>
-          <line>233</line>
+          <line>292</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>

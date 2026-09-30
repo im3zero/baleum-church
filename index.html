@@ -9,16 +9,12 @@
     <meta property="og:url" content="https://baleum-church.vercel.app">
     <meta property="og:image" content="https://baleum-church.vercel.app/카카오톡_미리보기_포스터.jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;600&display=swap">    <style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;600&display=swap">
+    <style>
         :root {
-            --bg: #F8F5EF;
-            --surface: #FFFFFF;
-            --gold: #C9A84C;
-            --gold-light: #E8D5A0;
-            --text-primary: #1B2A4A;
-            --text-secondary: #6B7280;
-            --border: rgba(27, 42, 74, 0.10);
-            --shadow: 0 2px 16px rgba(27, 42, 74, 0.08);
+            --bg: #F8F5EF; --surface: #FFFFFF; --gold: #C9A84C; --gold-light: #E8D5A0;
+            --text-primary: #1B2A4A; --text-secondary: #6B7280;
+            --border: rgba(27, 42, 74, 0.10); --shadow: 0 2px 16px rgba(27, 42, 74, 0.08);
         }
         @media (prefers-color-scheme: dark) {
             :root:not([data-theme="light"]) {
@@ -43,9 +39,8 @@
         }
         .page { width: 100%; max-width: 420px; display: flex; flex-direction: column; align-items: center; }
         .header { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-block: 0 40px; text-align: center; }
-        .emblem svg { width: 80px; height: 80px; }
         .church-name { font-family: 'Jua', sans-serif; font-size: 34px; font-weight: 400; color: var(--text-primary); letter-spacing: -0.02em; }
-        h2 { font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-secondary); }        .church-sub { font-size: 13px; color: var(--text-secondary); letter-spacing: 0.04em; line-height: 1.5; }
+        h2 { font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-secondary); }
         .links { width: 100%; display: flex; flex-direction: column; gap: 12px; }
         .link-card {
             display: flex; align-items: center; gap: 16px; padding: 18px 20px;
@@ -67,6 +62,57 @@
         .link-desc { font-size: 12px; color: var(--text-secondary); }
         .arrow { color: var(--text-secondary); opacity: 0.5; flex-shrink: 0; transition: transform 0.2s ease; }
 
+        /* 편지봉투 버튼 */
+        .envelope-btn-wrap {
+            width: 100%; display: flex; flex-direction: column; align-items: center;
+            padding: 8px 0 20px;
+        }
+        .envelope-btn {
+            display: flex; flex-direction: column; align-items: center; gap: 10px;
+            background: none; border: none; cursor: pointer; padding: 16px;
+            border-radius: 20px; transition: transform 0.15s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .envelope-btn:active { transform: scale(0.94); }
+        .envelope-icon {
+            width: 72px; height: 72px;
+            filter: drop-shadow(0 4px 12px rgba(201, 168, 76, 0.35));
+            transition: filter 0.2s ease, transform 0.2s ease;
+        }
+        .envelope-btn:hover .envelope-icon {
+            filter: drop-shadow(0 6px 18px rgba(201, 168, 76, 0.55));
+            transform: translateY(-2px);
+        }
+        .envelope-label {
+            font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600;
+            color: var(--text-secondary); letter-spacing: 0.02em;
+        }
+
+        /* 편지 모달 */
+        .letter-modal {
+            display: none; position: fixed; inset: 0; z-index: 999;
+            background: rgba(0,0,0,0.75);
+            align-items: center; justify-content: center; padding: 24px;
+        }
+        .letter-modal.open { display: flex; }
+        .letter-modal-inner {
+            position: relative; max-width: 420px; width: 100%;
+            animation: pop-in 0.22s ease;
+        }
+        @keyframes pop-in {
+            from { opacity: 0; transform: scale(0.9); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+        .letter-modal img { width: 100%; border-radius: 16px; display: block; }
+        .letter-close {
+            position: absolute; top: -14px; right: -14px;
+            width: 36px; height: 36px; border-radius: 50%;
+            background: var(--surface); border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            color: var(--text-primary); font-size: 18px; line-height: 1;
+        }
+
         /* 인스타 드롭다운 */
         .insta-wrap { display: flex; flex-direction: column; }
         .insta-toggle { cursor: pointer; user-select: none; transition: border-radius 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease; }
@@ -78,7 +124,6 @@
         .insta-item:hover { background: var(--gold-light); }
         .insta-item:last-child { border-radius: 0 0 16px 16px; }
         .insta-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
-        .pastor-dropdown.open { max-height: 1200px; }
 
         /* 일정 드롭다운 */
         .schedule-wrap { display: flex; flex-direction: column; }
@@ -87,13 +132,10 @@
         .schedule-toggle.open .arrow { transform: rotate(90deg); }
         .schedule-dropdown { overflow: hidden; max-height: 0; transition: max-height 0.5s ease; border: 1px solid var(--border); border-top: none; border-radius: 0 0 16px 16px; background: var(--surface); box-shadow: var(--shadow); }
         .schedule-dropdown.open { max-height: 1400px; }
-        .schedule-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 20px; border-top: 1px solid var(--border); }
-        .schedule-date { font-size: 11px; font-weight: 700; color: var(--gold); white-space: nowrap; padding-top: 2px; flex-shrink: 0; }
-        .schedule-name { font-size: 13px; font-weight: 500; color: var(--text-primary); line-height: 1.4; }
 
         /* 캘린더 */
         .calendar-wrap { width: 100%; padding: 16px 16px 20px; border-top: 1px solid var(--border); margin-top: 4px; }
-        .calendar-title { font-family: 'Noto Serif KR', serif; font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+        .calendar-title { font-size: 14px; font-weight: 600; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
         .calendar-title::before { content: ''; display: inline-block; width: 3px; height: 14px; background: var(--gold); border-radius: 2px; }
         .calendar-nav { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
         .calendar-nav span { font-size: 14px; font-weight: 600; color: var(--text-primary); }
@@ -114,11 +156,8 @@
         .event-dot { font-size: 8px; color: var(--gold); text-align: center; line-height: 1.2; word-break: keep-all; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
         .event-list { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
         .event-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
-        .event-date-badge {
-            background: var(--gold-light); color: #8B6914; font-size: 10px; font-weight: 700;
-            padding: 3px 7px; border-radius: 6px; white-space: nowrap; flex-shrink: 0;
-            min-width: 56px; text-align: center;
-        }        .event-name { font-size: 12px; font-weight: 500; color: var(--text-primary); line-height: 1.4; padding-top: 2px; }
+        .event-date-badge { background: var(--gold-light); color: #8B6914; font-size: 10px; font-weight: 700; padding: 3px 7px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; min-width: 56px; text-align: center; }
+        .event-name { font-size: 12px; font-weight: 500; color: var(--text-primary); line-height: 1.4; padding-top: 2px; }
     </style>
 </head>
 <body>
@@ -129,22 +168,25 @@
         <h1 class="church-name">"친구야 교회 가자"</h1>
     </header>
 
-    <nav class="links" aria-label="교회 링크 모음">
+    <!-- 편지봉투 버튼 -->
+    <div class="envelope-btn-wrap">
+        <button class="envelope-btn" onclick="openLetter()" aria-label="초대의 글 보기">
+            <svg class="envelope-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="4" y="16" width="72" height="48" rx="8" fill="#C9A84C"/>
+                <path d="M4 22L40 46L76 22" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="4" y="16" width="72" height="48" rx="8" fill="url(#env-grad)" opacity="0.2"/>
+                <defs>
+                    <linearGradient id="env-grad" x1="4" y1="16" x2="76" y2="64" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="white"/>
+                        <stop offset="100%" stop-color="transparent"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+            <span class="envelope-label">초대의 글 열기</span>
+        </button>
+    </div>
 
-        <div class="insta-wrap">
-            <div class="link-card insta-toggle" onclick="toggleDropdown(this)">
-                <div class="icon-wrap">
-                    <svg viewBox="0 0 24 24">
-                        <rect x="2" y="5" width="20" height="14" rx="2" fill="var(--gold)"/>
-                        <path d="M2 7l10 7 10-7" stroke="var(--surface)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
-                    </svg>                </div>
-                <div class="link-info"><span class="link-label">초대의 글</span><span class="link-desc">전근영 담임목사</span></div>
-                <svg class="arrow" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-            </div>
-            <div class="insta-dropdown pastor-dropdown">
-                <img src="/pastor_letter.jpeg" alt="담임목사님 초대의 글" style="width:100%; display:block;">
-            </div>
-        </div>
+    <nav class="links" aria-label="교회 링크 모음">
 
         <a href="http://www.baleum.org/main/" class="link-card" target="_blank" rel="noopener">
             <div class="icon-wrap">
@@ -177,12 +219,12 @@
                 <a href="https://www.instagram.com/baleum_2cheong/" class="insta-item" target="_blank" rel="noopener"><span class="insta-dot"></span>2청년부</a>
                 <a href="https://www.instagram.com/baleum_highschool/" class="insta-item" target="_blank" rel="noopener"><span class="insta-dot"></span>고등부</a>
                 <a href="https://www.instagram.com/baleum_middleschool/" class="insta-item" target="_blank" rel="noopener"><span class="insta-dot"></span>중등부</a>
-
             </div>
         </div>
 
         <div class="schedule-wrap">
-            <div class="link-card schedule-toggle" onclick="toggleDropdown(this)">                <div class="icon-wrap">
+            <div class="link-card schedule-toggle" onclick="toggleDropdown(this)">
+                <div class="icon-wrap">
                     <svg viewBox="0 0 24 24">
                         <rect x="3" y="4" width="18" height="17" rx="3" fill="var(--gold)"/>
                         <rect x="3" y="4" width="18" height="7" rx="3" fill="var(--gold)"/>
@@ -229,18 +271,32 @@
     <img src="/logo.png" style="width:200px; margin-top:40px; mix-blend-mode:multiply; opacity:0.8;" alt="발음교회 로고">
 </div>
 
+<!-- 편지 모달 -->
+<div class="letter-modal" id="letter-modal" onclick="closeLetter(event)">
+    <div class="letter-modal-inner">
+        <button class="letter-close" onclick="closeLetter(null)" aria-label="닫기">✕</button>
+        <img src="/pastor_letter.jpeg" alt="담임목사님 초대의 글">
+    </div>
+</div>
+
 <script>
+    function openLetter() {
+        document.getElementById('letter-modal').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+    function closeLetter(e) {
+        if (e && e.target !== document.getElementById('letter-modal')) return;
+        document.getElementById('letter-modal').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
     function toggleDropdown(btn) {
         const dropdown = btn.nextElementSibling;
         const isOpen = btn.classList.contains('open');
-
-        // 모든 드롭다운 닫기
         document.querySelectorAll('.insta-toggle, .schedule-toggle').forEach(b => {
             b.classList.remove('open');
             b.nextElementSibling.classList.remove('open');
         });
-
-        // 클릭한 게 닫혀있었으면 열기
         if (!isOpen) {
             btn.classList.add('open');
             dropdown.classList.add('open');
@@ -259,8 +315,7 @@
         '2026-11-01': ['VIP 초청 주일 🎉'],
     };
 
-    let currentYear = 2026;
-    let currentMonth = 10;
+    let currentYear = 2026, currentMonth = 10;
 
     function changeMonth(dir) {
         currentMonth += dir;
@@ -273,21 +328,16 @@
         const label = document.getElementById('cal-month-label');
         const body = document.getElementById('cal-body');
         const eventList = document.getElementById('event-list');
-
         label.textContent = currentYear + '년 ' + currentMonth + '월';
-
         const firstDay = new Date(currentYear, currentMonth - 1, 1).getDay();
         const daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
         const prevDays = new Date(currentYear, currentMonth - 1, 0).getDate();
-
         body.innerHTML = '';
         const cells = [];
-
         for (let i = firstDay - 1; i >= 0; i--) cells.push({ day: prevDays - i, current: false });
         for (let d = 1; d <= daysInMonth; d++) cells.push({ day: d, current: true });
         const remain = 42 - cells.length;
         for (let d = 1; d <= remain; d++) cells.push({ day: d, current: false });
-
         cells.forEach(function(cell, idx) {
             const div = document.createElement('div');
             div.className = 'cal-day';
@@ -295,18 +345,14 @@
             const dow = idx % 7;
             if (dow === 0) div.classList.add('sunday');
             if (dow === 6) div.classList.add('saturday');
-
             const dateKey = cell.current
                 ? currentYear + '-' + String(currentMonth).padStart(2,'0') + '-' + String(cell.day).padStart(2,'0')
                 : null;
-
             if (dateKey && events[dateKey]) div.classList.add('has-event');
-
             const numEl = document.createElement('div');
             numEl.className = 'day-num';
             numEl.textContent = cell.day;
             div.appendChild(numEl);
-
             if (dateKey && events[dateKey]) {
                 events[dateKey].forEach(function(ev) {
                     const dot = document.createElement('div');
@@ -317,14 +363,12 @@
             }
             body.appendChild(div);
         });
-
         eventList.innerHTML = '';
         const days = ['일','월','화','수','목','금','토'];
         const monthKeys = Object.keys(events).filter(function(k) {
             const parts = k.split('-');
             return parseInt(parts[0]) === currentYear && parseInt(parts[1]) === currentMonth;
         }).sort();
-
         monthKeys.forEach(function(key) {
             const d = parseInt(key.split('-')[2]);
             const date = new Date(key);
@@ -337,7 +381,6 @@
             });
         });
     }
-
     renderCalendar();
 </script>
 </body>
