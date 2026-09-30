@@ -304,23 +304,19 @@
 
 <script>
     var envelopeBtn = document.getElementById('envelope-btn');
-    var bouncing = false;
 
     function handleEnvelope() {
-        if (bouncing) return;
-        bouncing = true;
+        // bounce 애니메이션 재시작 (이미 있으면 제거 후 재부착)
+        envelopeBtn.classList.remove('bounce');
+        void envelopeBtn.offsetWidth; // reflow로 애니메이션 리셋
         envelopeBtn.classList.add('bounce');
-        envelopeBtn.addEventListener('animationend', function onEnd() {
-            envelopeBtn.classList.remove('bounce');
-            envelopeBtn.style.animation = '';
-            // float 애니메이션 재시작
-            void envelopeBtn.offsetWidth;
-            envelopeBtn.style.animation = 'float 2.8s ease-in-out infinite';
-            bouncing = false;
-            openLetter();
-            envelopeBtn.removeEventListener('animationend', onEnd);
-        });
     }
+
+    envelopeBtn.addEventListener('animationend', function(e) {
+        if (e.animationName !== 'boing') return;
+        envelopeBtn.classList.remove('bounce');
+        openLetter();
+    });
 
     function openLetter() {
         document.getElementById('letter-modal').classList.add('open');
