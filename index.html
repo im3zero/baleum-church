@@ -315,33 +315,14 @@
         openLetter();
     });
 
-    // 유튜브 IFrame API
-    var ytPlayer = null;
-    var ytReady = false;
-
-    function onYouTubeIframeAPIReady() {
-        ytReady = true;
-        ytPlayer = new YT.Player('yt-player', {
-            height: '0', width: '0',
-            videoId: 'mzAmhcGYZOk',
-            playerVars: { autoplay: 0, controls: 0, loop: 1, playlist: 'mzAmhcGYZOk' },
-            events: { onReady: function() {} }
-        });
-    }
-
     function openLetter() {
         document.getElementById('letter-modal').classList.add('open');
         document.body.style.overflow = 'hidden';
-        // 봉투 클릭 시 음악 재생
-        if (ytPlayer && typeof ytPlayer.playVideo === 'function') {
-            ytPlayer.playVideo();
-        }
     }
     function closeLetter(e) {
         if (e && e.target !== document.getElementById('letter-modal')) return;
         document.getElementById('letter-modal').classList.remove('open');
         document.body.style.overflow = '';
-        // 편지 닫아도 음악은 계속 재생
     }
 
     function toggleDropdown(btn) {
@@ -437,8 +418,5 @@
     }
     renderCalendar();
 </script>
-<!-- 숨겨진 유튜브 플레이어 -->
-<div id="yt-player" style="position:absolute;width:0;height:0;overflow:hidden;"></div>
-<script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
