@@ -38,7 +38,7 @@
             padding-inline: 16px; padding-block: 48px 64px;
         }
         .page { width: 100%; max-width: 420px; display: flex; flex-direction: column; align-items: center; }
-        .header { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-block: 0 40px; text-align: center; }
+        .header { display: flex; flex-direction: column; align-items: center; gap: 16px; padding-block: 0 24px; text-align: center; }
         .church-name { font-family: 'Jua', sans-serif; font-size: 34px; font-weight: 400; color: var(--text-primary); letter-spacing: -0.02em; }
         h2 { font-family: 'Noto Sans KR', sans-serif; font-size: 20px; font-weight: 600; color: var(--text-secondary); }
         .links { width: 100%; display: flex; flex-direction: column; gap: 12px; }
@@ -65,27 +65,50 @@
         /* 편지봉투 버튼 */
         .envelope-btn-wrap {
             width: 100%; display: flex; flex-direction: column; align-items: center;
-            padding: 8px 0 20px;
+            padding: 4px 0 24px;
         }
         .envelope-btn {
             display: flex; flex-direction: column; align-items: center; gap: 10px;
             background: none; border: none; cursor: pointer; padding: 16px;
-            border-radius: 20px; transition: transform 0.15s ease;
+            border-radius: 20px;
             -webkit-tap-highlight-color: transparent;
+            animation: float 2.8s ease-in-out infinite;
         }
-        .envelope-btn:active { transform: scale(0.94); }
+
+        /* 둥실둥실 떠다니는 기본 애니메이션 */
+        @keyframes float {
+            0%   { transform: translateY(0px) rotate(0deg); }
+            25%  { transform: translateY(-6px) rotate(-2deg); }
+            50%  { transform: translateY(-10px) rotate(0deg); }
+            75%  { transform: translateY(-6px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        /* 클릭 시 띠용띠용 bounce */
+        .envelope-btn.bounce {
+            animation: none;
+        }
+        @keyframes boing {
+            0%   { transform: scale(1) rotate(0deg); }
+            15%  { transform: scale(0.82) rotate(-8deg); }
+            35%  { transform: scale(1.28) rotate(6deg); }
+            50%  { transform: scale(0.92) rotate(-4deg); }
+            65%  { transform: scale(1.14) rotate(3deg); }
+            80%  { transform: scale(0.97) rotate(-1deg); }
+            90%  { transform: scale(1.04) rotate(1deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        .envelope-btn.bounce {
+            animation: boing 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+        }
+
         .envelope-icon {
             width: 72px; height: 72px;
-            filter: drop-shadow(0 4px 12px rgba(201, 168, 76, 0.35));
-            transition: filter 0.2s ease, transform 0.2s ease;
-        }
-        .envelope-btn:hover .envelope-icon {
-            filter: drop-shadow(0 6px 18px rgba(201, 168, 76, 0.55));
-            transform: translateY(-2px);
+            filter: drop-shadow(0 4px 14px rgba(201, 168, 76, 0.45));
         }
         .envelope-label {
-            font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600;
-            color: var(--text-secondary); letter-spacing: 0.02em;
+            font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 600;
+            color: var(--text-secondary); letter-spacing: 0.04em;
         }
 
         /* 편지 모달 */
@@ -97,11 +120,11 @@
         .letter-modal.open { display: flex; }
         .letter-modal-inner {
             position: relative; max-width: 420px; width: 100%;
-            animation: pop-in 0.22s ease;
+            animation: pop-in 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         @keyframes pop-in {
-            from { opacity: 0; transform: scale(0.9); }
-            to   { opacity: 1; transform: scale(1); }
+            from { opacity: 0; transform: scale(0.75) rotate(-4deg); }
+            to   { opacity: 1; transform: scale(1) rotate(0deg); }
         }
         .letter-modal img { width: 100%; border-radius: 16px; display: block; }
         .letter-close {
@@ -168,9 +191,9 @@
         <h1 class="church-name">"친구야 교회 가자"</h1>
     </header>
 
-    <!-- 편지봉투 버튼 -->
+    <!-- 편지봉투 버튼 (헤더 바로 아래) -->
     <div class="envelope-btn-wrap">
-        <button class="envelope-btn" onclick="openLetter()" aria-label="초대의 글 보기">
+        <button class="envelope-btn" id="envelope-btn" onclick="handleEnvelope()" aria-label="초대의 글 보기">
             <svg class="envelope-icon" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="4" y="16" width="72" height="48" rx="8" fill="#C9A84C"/>
                 <path d="M4 22L40 46L76 22" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
@@ -280,6 +303,25 @@
 </div>
 
 <script>
+    var envelopeBtn = document.getElementById('envelope-btn');
+    var bouncing = false;
+
+    function handleEnvelope() {
+        if (bouncing) return;
+        bouncing = true;
+        envelopeBtn.classList.add('bounce');
+        envelopeBtn.addEventListener('animationend', function onEnd() {
+            envelopeBtn.classList.remove('bounce');
+            envelopeBtn.style.animation = '';
+            // float 애니메이션 재시작
+            void envelopeBtn.offsetWidth;
+            envelopeBtn.style.animation = 'float 2.8s ease-in-out infinite';
+            bouncing = false;
+            openLetter();
+            envelopeBtn.removeEventListener('animationend', onEnd);
+        });
+    }
+
     function openLetter() {
         document.getElementById('letter-modal').classList.add('open');
         document.body.style.overflow = 'hidden';
