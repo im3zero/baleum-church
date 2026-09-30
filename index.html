@@ -164,7 +164,7 @@
         .event-dot { font-size: 6.5px; color: var(--gold); text-align: center; line-height: 1.3; word-break: keep-all; overflow-wrap: break-word; }
         .event-list { margin-top: 12px; display: flex; flex-direction: column; gap: 6px; }
         .event-item { display: flex; align-items: flex-start; gap: 10px; padding: 10px 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 10px; }
-        .event-date-badge { background: var(--gold-light); color: #8B6914; font-size: 10px; font-weight: 700; padding: 3px 7px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; min-width: 67px; text-align: center; }
+        .event-date-badge { background: var(--gold-light); color: #8B6914; font-size: 10px; font-weight: 700; padding: 3px 7px; border-radius: 6px; white-space: nowrap; flex-shrink: 0; min-width: 56px; text-align: center; }
         .event-name { font-size: 12px; font-weight: 500; color: var(--text-primary); line-height: 1.4; padding-top: 2px; }
     </style>
 </head>
@@ -346,7 +346,7 @@
         '2026-10-14': ['전도 간증'],
         '2026-10-18': ['발산 교동협의회 가을음악회'],
         '2026-10-21': ['전도 특강 (배우, 김예랑 집사)'],
-        '2026-10-26': ['VIP초청주일을 위한 특별새벽기도회(~10.30)'],
+        '2026-10-26': ['VIP 초청주일을 위한 특별새벽기도회(~10.30)'],
         '2026-10-28': ['선교보고예배 (오만, 조갈렙 선교사)'],
         '2026-10-31': ['북콘서트 (강문순 집사)'],
         '2026-11-01': ['VIP 초청 주일 🎉'],
@@ -451,7 +451,8 @@
             events[key].forEach(function(ev) {
                 const item = document.createElement('div');
                 item.className = 'event-item';
-                item.innerHTML = '<span class="event-date-badge">' + label + '</span><span class="event-name">' + ev + '</span>';
+                const isLong = key === '2026-10-26';
+                item.innerHTML = '<span class="event-date-badge">' + label + '</span><span class="event-name"' + (isLong ? ' style="font-size:10px"' : '') + '>' + ev + '</span>';
                 eventList.appendChild(item);
             });
         });
