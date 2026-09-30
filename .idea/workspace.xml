@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="066854e4-f2f6-4af8-b79d-7bf7d867b16e" name="Changes" comment="" />
+    <list default="true" id="066854e4-f2f6-4af8-b79d-7bf7d867b16e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,7 +70,7 @@
       <updated>1790561786423</updated>
       <workItem from="1790561787437" duration="2379000" />
       <workItem from="1790603756959" duration="9553000" />
-      <workItem from="1790749297088" duration="2400000" />
+      <workItem from="1790749297088" duration="2723000" />
     </task>
     <servers />
   </component>
@@ -80,13 +82,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/index.html</url>
-          <line>312</line>
+          <line>301</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/index.html</url>
-          <line>244</line>
+          <line>233</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
