@@ -411,9 +411,20 @@
                 const evWrap = document.createElement('div');
                 evWrap.style.cssText = 'display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;gap:2px;';
                 events[dateKey].forEach(function(ev) {
+                    // 괄호 앞에서 줄바꿈
+                    const parts = ev.split(/(\()/);
                     const dot = document.createElement('div');
                     dot.className = 'event-dot';
-                    dot.textContent = ev;
+                    if (parts.length > 1) {
+                        const before = document.createTextNode(parts[0]);
+                        const br = document.createElement('br');
+                        const after = document.createTextNode(parts.slice(1).join(''));
+                        dot.appendChild(before);
+                        dot.appendChild(br);
+                        dot.appendChild(after);
+                    } else {
+                        dot.textContent = ev;
+                    }
                     evWrap.appendChild(dot);
                 });
                 div.appendChild(evWrap);
